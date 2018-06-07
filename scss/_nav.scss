@@ -3,8 +3,8 @@
   ul {
     list-style: none;
     display: inline-flex;
-    border: 2px solid black;
-    margin: 1rem 0;
+    border: 2px solid #c26b23;
+    margin: 1rem;
     border-radius: 15px;
     overflow: hidden;
     li {
@@ -12,13 +12,15 @@
         display: inline-block;
         padding: 0.5rem 2rem;
         text-decoration: none;
-        color: black;
+        color: #c26b23;
         font-weight: bold;
+        height: 100%;
         svg {
           display: inline-block;
           width: 24px;
           height: 24px;
           margin-right: 0.4rem;
+          fill: #c26b23;
         }
         svg, span {
           vertical-align: middle;
@@ -26,7 +28,7 @@
       }
       &.active {
         a {
-          background: black;
+          background: #c26b23;
           color: white;
         }
         svg {

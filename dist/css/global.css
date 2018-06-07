@@ -1,30 +1,31 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,400italic);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,500,700);
 .main-nav {
   text-align: center; }
   .main-nav ul {
     list-style: none;
-    display: -webkit-inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
-    border: 2px solid black;
-    margin: 1rem 0;
+    border: 2px solid #c26b23;
+    margin: 1rem;
     border-radius: 15px;
     overflow: hidden; }
     .main-nav ul li a {
       display: inline-block;
       padding: 0.5rem 2rem;
       text-decoration: none;
-      color: black;
-      font-weight: bold; }
+      color: #c26b23;
+      font-weight: bold;
+      height: 100%; }
       .main-nav ul li a svg {
         display: inline-block;
         width: 24px;
         height: 24px;
-        margin-right: 0.4rem; }
+        margin-right: 0.4rem;
+        fill: #c26b23; }
       .main-nav ul li a svg, .main-nav ul li a span {
         vertical-align: middle; }
     .main-nav ul li.active a {
-      background: black;
+      background: #c26b23;
       color: white; }
     .main-nav ul li.active svg {
       fill: white; }
@@ -32,7 +33,14 @@
 .tabs .tab {
   display: none; }
   .tabs .tab.active {
-    display: block; }
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap; }
 
 * {
   margin: 0;
@@ -40,11 +48,13 @@
   box-sizing: border-box; }
 
 body {
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Quicksand', sans-serif;
+  color: #c26b23;
+  background: linear-gradient(to bottom, #f8ffe8 0%, #e3f5ab 33%, #b7df2d) fixed; }
 
 .main-header {
   text-align: center;
-  background: black;
+  background: #c26b23;
   color: white;
   padding: 3rem 5rem 3rem; }
   .main-header h1 {
@@ -54,33 +64,163 @@ body {
 
 h1 {
   font-size: 3rem;
-  margin: 0 0 1rem 0; }
+  margin: 0 0 1rem 0;
+  text-align: center; }
 
 p {
   margin: 0 0 0.5rem 0; }
 
 main.tabs {
-  max-width: 800px;
+  max-width: 90%;
   margin: 0 auto;
   padding: 20px; }
 
-.speaker-list {
+.guide-buttons {
   list-style: none;
-  display: -webkit-flex;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 20px;
+  -ms-grid-columns: (minmax(150px, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
+  -ms-grid-rows: (150px)[3];
+      grid-template-rows: repeat(3, 150px);
+  -ms-flex-line-pack: center;
+      align-content: center; }
+  .guide-buttons li {
+    text-align: center;
+    display: -ms-grid;
+    display: grid;
+    -ms-flex-align: center;
+        align-items: center;
+    height: 100%;
+    border: 2px solid #c26b23;
+    border-radius: 4px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.25em;
+    box-shadow: inset 0 0 20px rgba(194, 107, 35, 0);
+    outline: 1px solid;
+    outline-color: rgba(194, 107, 35, 0.5);
+    outline-offset: -2px;
+    text-shadow: none;
+    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1); }
+  .guide-buttons li:hover {
+    border: 2px solid;
+    box-shadow: inset 0 0 20px rgba(194, 107, 35, 0.5), 0 0 20px rgba(194, 107, 35, 0.2);
+    outline-color: rgba(194, 107, 35, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388;
+    background-color: #c26b23;
+    color: #fff; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td {
+  padding: 0; }
+
+.calendar-container {
+  width: 60%; }
+
+.calendar-container header {
+  border-radius: 1em 1em 0 0;
+  background: #c26b23;
+  color: #fff;
+  padding: 3em 2em;
+  text-align: center; }
+
+.day {
+  font-size: 8em;
+  font-weight: 900;
+  line-height: 1em; }
+
+.month {
+  font-size: 4em;
+  line-height: 1em;
+  text-transform: lowercase; }
+
+.calendar {
+  background: #fff;
+  border-radius: 0 0 1em 1em;
+  color: #555;
+  display: inline-block;
+  padding: 2em;
+  width: 100%;
   display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between; }
-  .speaker-list li {
-    width: 32%;
-    text-align: center;
-    border: 2px solid black;
-    border-radius: 4px;
-    padding: 40px 10px; }
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center; }
 
-.schedule dt {
-  font-weight: bold; }
+.calendar thead {
+  color: #c26b23;
+  font-weight: 700;
+  text-transform: uppercase; }
 
-.schedule dt ~ dt {
-  margin-top: 1rem; }
+.calendar td {
+  padding: .5em 1.5em;
+  text-align: center; }
+
+.calendar-days td {
+  padding: .5em 1.1em;
+  text-align: center; }
+
+.calendar tbody td:hover {
+  background: #cacaca;
+  color: #fff; }
+
+.current-day {
+  color: #c26b23; }
+
+.prev-month,
+.next-month {
+  color: #cacaca; }
+
+.search-wrapper {
+  height: 5rem;
+  font-size: 0;
+  width: 70%;
+  margin-top: 2rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -ms-grid-column-align: center;
+      justify-items: center; }
+  .search-wrapper input {
+    box-sizing: border-box;
+    font-size: 1rem;
+    vertical-align: top; }
+  .search-wrapper input:focus {
+    outline: none;
+    color: #c26b23; }
+  .search-wrapper input:-ms-input-placeholder {
+    color: #c26b23; }
+  .search-wrapper input::placeholder {
+    color: #c26b23; }
+
+.search {
+  padding: 0 30px;
+  font-size: 2rem;
+  width: 80%;
+  min-width: 200px;
+  height: 4rem;
+  border: 1px solid #c26b23;
+  border-radius: 20px 0 0 20px; }
+
+.submit {
+  cursor: pointer;
+  border: none;
+  background: url("http://thesuiteworld.com/wp-admin/maint/search-icon-white-png-540.png") no-repeat center center, #c26b23;
+  background-size: 35px 35px;
+  border-radius: 0 20px 20px 0;
+  padding: 15px 25px;
+  width: 20%;
+  min-width: 75px;
+  height: 4rem; }
+
+/*# sourceMappingURL=global.css.map */

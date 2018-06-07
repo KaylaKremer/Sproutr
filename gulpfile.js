@@ -32,6 +32,7 @@ gulp.task('concat', function() {
   return gulp.src([
       // Specifying each one so it happens in order
       'js/min/jquery.js',
+      'js/min/search.js',
       'js/min/global.js'
     ])
     .pipe(concat('global.js'))
@@ -43,17 +44,6 @@ gulp.task('move', function() {
       'js/min/service-worker.js'
     ])
     .pipe(gulp.dest('dist'));
-});
-
-gulp.task('svgstore', function () {
-  return gulp
-    .src('images/svg/*.svg')
-    .pipe(svgmin())
-    .pipe(svgstore())
-    .pipe(cheerio(function ($) {
-      $('svg').attr('display', 'none');
-    }))
-    .pipe(gulp.dest('images/svg-sprite/'));
 });
 
 gulp.task('fileinclude', function() {
@@ -68,7 +58,6 @@ gulp.task('fileinclude', function() {
 gulp.task('default', function () {
   gulp.watch('./scss/*.scss', ['css']);
   gulp.watch('./js/*.js', ['compress', 'concat', 'move']);
-  gulp.watch('./images/svg/*.svg', ['svgstore', 'fileinclude']);
   gulp.watch('./index.html', ['fileinclude', browserSync.reload]);
 
   browserSync.init({
