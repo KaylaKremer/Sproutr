@@ -1,17 +1,41 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand:400,500,700);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: #c26b23;
+  background: linear-gradient(to bottom, #f8ffe8 0%, #e3f5ab 33%, #b7df2d) fixed;
+  min-width: 250px; }
+
+.nav-container {
+  margin-right: 1rem;
+  margin-left: 1rem; }
+
 .main-nav {
   text-align: center; }
   .main-nav ul {
     list-style: none;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(5rem, 1fr))[3];
+        grid-template-columns: repeat(3, minmax(5rem, 1fr));
+    -ms-grid-rows: (minmax(3rem, 1fr))[1];
+        grid-template-rows: repeat(1, minmax(3rem, 1fr));
+    -ms-flex-line-pack: center;
+        align-content: center;
     border: 2px solid #c26b23;
-    margin: 1rem;
+    margin: 2rem auto;
     border-radius: 15px;
-    overflow: hidden; }
+    overflow: hidden;
+    max-width: 40rem; }
     .main-nav ul li a {
       display: inline-block;
-      padding: 0.5rem 2rem;
+      padding: 0.5rem 2.5rem;
+      margin-right: -0.1rem;
+      margin-left: -0.1rem;
       text-decoration: none;
       color: #c26b23;
       font-weight: bold;
@@ -29,28 +53,6 @@
       color: white; }
     .main-nav ul li.active svg {
       fill: white; }
-
-.tabs .tab {
-  display: none; }
-  .tabs .tab.active {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-        flex-direction: column;
-    -ms-flex-align: center;
-        align-items: center;
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap; }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
-
-body {
-  font-family: 'Quicksand', sans-serif;
-  color: #c26b23;
-  background: linear-gradient(to bottom, #f8ffe8 0%, #e3f5ab 33%, #b7df2d) fixed; }
 
 .main-header {
   text-align: center;
@@ -73,17 +75,29 @@ p {
 main.tabs {
   max-width: 90%;
   margin: 0 auto;
-  padding: 20px; }
+  padding: 1rem; }
+
+.tabs .tab {
+  display: none; }
+  .tabs .tab.active {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap; }
 
 .guide-buttons {
   list-style: none;
   display: -ms-grid;
   display: grid;
-  grid-gap: 20px;
-  -ms-grid-columns: (minmax(150px, 1fr))[3];
-      grid-template-columns: repeat(3, minmax(150px, 1fr));
-  -ms-grid-rows: (150px)[3];
-      grid-template-rows: repeat(3, 150px);
+  grid-gap: 2rem;
+  -ms-grid-columns: (minmax(10rem, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(10rem, 1fr));
+  -ms-grid-rows: (10rem)[3];
+      grid-template-rows: repeat(3, 10rem);
   -ms-flex-line-pack: center;
       align-content: center; }
   .guide-buttons li {
@@ -97,7 +111,7 @@ main.tabs {
     border-radius: 4px;
     padding: 10px;
     font-weight: bold;
-    font-size: 1.25em;
+    font-size: 1.25rem;
     box-shadow: inset 0 0 20px rgba(194, 107, 35, 0);
     outline: 1px solid;
     outline-color: rgba(194, 107, 35, 0.5);
@@ -121,14 +135,54 @@ td {
   padding: 0; }
 
 .calendar-container {
-  width: 60%; }
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; }
 
-.calendar-container header {
+.calendar-header {
   border-radius: 1em 1em 0 0;
   background: #c26b23;
   color: #fff;
-  padding: 3em 2em;
+  padding: 2em 14.1em;
+  text-align: center;
+  max-width: 600px;
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  -ms-flex-pack: center;
+      justify-content: center; }
+
+.calendar {
+  background: #fff;
+  border-radius: 0 0 1em 1em;
+  color: #c26b23;
+  padding: 2rem;
+  max-width: 600px;
+  font-size: 1rem;
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  -ms-flex-pack: center;
+      justify-content: center; }
+
+.calendar thead {
+  color: #c26b23;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.calendar td {
+  padding: 1em 2em;
   text-align: center; }
+
+.calendar-days td {
+  padding: .5em 1.1em;
+  text-align: center; }
+
+.calendar tbody td:hover {
+  background: #c26b23;
+  border-radius: 1em;
+  color: #fff; }
 
 .day {
   font-size: 8em;
@@ -140,39 +194,8 @@ td {
   line-height: 1em;
   text-transform: lowercase; }
 
-.calendar {
-  background: #fff;
-  border-radius: 0 0 1em 1em;
-  color: #555;
-  display: inline-block;
-  padding: 2em;
-  width: 100%;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center; }
-
-.calendar thead {
-  color: #c26b23;
-  font-weight: 700;
-  text-transform: uppercase; }
-
-.calendar td {
-  padding: .5em 1.5em;
-  text-align: center; }
-
-.calendar-days td {
-  padding: .5em 1.1em;
-  text-align: center; }
-
-.calendar tbody td:hover {
-  background: #cacaca;
-  color: #fff; }
-
 .current-day {
-  color: #c26b23; }
+  font-weight: 900; }
 
 .prev-month,
 .next-month {
@@ -194,7 +217,8 @@ td {
   .search-wrapper input {
     box-sizing: border-box;
     font-size: 1rem;
-    vertical-align: top; }
+    vertical-align: top;
+    color: #c26b23; }
   .search-wrapper input:focus {
     outline: none;
     color: #c26b23; }
@@ -215,12 +239,33 @@ td {
 .submit {
   cursor: pointer;
   border: none;
-  background: url("http://thesuiteworld.com/wp-admin/maint/search-icon-white-png-540.png") no-repeat center center, #c26b23;
   background-size: 35px 35px;
   border-radius: 0 20px 20px 0;
   padding: 15px 25px;
   width: 20%;
   min-width: 75px;
-  height: 4rem; }
+  height: 4rem;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #c26b23; }
 
-/*# sourceMappingURL=global.css.map */
+@media only screen and (max-width: 484px) {
+  .calendar-header {
+    padding: 2em 6.6em !important; }
+  .calendar td {
+    padding: 0.25em 0.5em !important; } }
+
+@media only screen and (max-width: 600px) {
+  .guide-buttons {
+    -ms-grid-columns: (minmax(10rem, 1fr))[2];
+        grid-template-columns: repeat(2, minmax(10rem, 1fr));
+    -ms-grid-rows: (10rem)[4];
+        grid-template-rows: repeat(4, 10rem); }
+  .main-nav ul li a {
+    padding: 0.5rem 1rem; }
+  .calendar-header {
+    padding: 2em 10.1em; }
+  .calendar td {
+    padding: 0.5em 1em; } }
+
+/*# sourceMappingURL=main.css.map */

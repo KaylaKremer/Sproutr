@@ -32,10 +32,9 @@ gulp.task('concat', function() {
   return gulp.src([
       // Specifying each one so it happens in order
       'js/min/jquery.js',
-      'js/min/search.js',
-      'js/min/global.js'
+      'js/min/app.js'
     ])
-    .pipe(concat('global.js'))
+    .pipe(concat('app.js'))
     .pipe(gulp.dest('dist/js'));
 });
 

@@ -1,0 +1,308 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,500,700);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: #c26b23;
+  background: linear-gradient(to bottom, #f8ffe8 0%,#e3f5ab 33%,#b7df2d) fixed;
+  min-width: 250px;
+}
+
+.nav-container {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.main-nav {
+  text-align: center;
+  ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(5rem, 1fr));
+    grid-template-rows: repeat(1, minmax(3rem, 1fr));
+    align-content: center;
+    border: 2px solid #c26b23;
+    margin: 2rem auto;
+    border-radius: 15px;
+    overflow: hidden;
+    max-width: 40rem;
+    li {
+      a {
+        display: inline-block;
+        padding: 0.5rem 2.5rem;
+        margin-right: -0.1rem;
+        margin-left: -0.1rem;
+        text-decoration: none;
+        color: #c26b23;
+        font-weight: bold;
+        height: 100%;
+        svg {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          margin-right: 0.4rem;
+          fill: #c26b23;
+        }
+        svg, span {
+          vertical-align: middle;
+        }
+      }
+      &.active {
+        a {
+          background: #c26b23;
+          color: white;
+        }
+        svg {
+          fill: white;
+        }
+      }
+    }
+  }
+}
+
+.main-header {
+  text-align: center;
+  background: #c26b23;
+  color: white;
+  padding: 3rem 5rem 3rem;
+  h1 {
+    margin: 0 0 0.5rem 0;
+  }
+  a {
+    color: white;
+  }
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+p {
+  margin: 0 0 0.5rem 0;
+}
+
+main.tabs {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.tabs {
+  .tab {
+      display: none; 
+    &.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+//Gardening Guides
+.guide-buttons {
+  list-style: none;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(3, minmax(10rem, 1fr));
+  grid-template-rows: repeat(3, 10rem);
+  align-content: center;
+  li {
+    text-align: center;
+    display: grid;
+    align-items: center;
+    height: 100%;
+    border: 2px solid #c26b23;
+    border-radius: 4px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.25rem;
+    box-shadow: inset 0 0 20px rgba(194, 107, 35, 0);
+    outline: 1px solid;
+    outline-color: rgba(194, 107, 35, .5);
+    outline-offset: -2px;
+    text-shadow: none;
+    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  li:hover {
+    border: 2px solid;
+    box-shadow: inset 0 0 20px rgba(194, 107, 35, .5), 0 0 20px rgba(194, 107, 35, .2);
+    outline-color: rgba(194, 107, 35, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388; 
+    background-color: #c26b23;
+    color: #fff;
+  }
+}
+
+//Season Calendar
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td {
+	padding: 0;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.calendar-header {
+	border-radius: 1em 1em 0 0;
+	background: #c26b23;
+	color: #fff;
+  padding: 2em 14.1em;
+  text-align: center; 
+  max-width: 600px;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+.calendar {
+  background: #fff;
+  border-radius: 0 0 1em 1em;
+	color: #c26b23;
+  padding: 2rem;
+  max-width: 600px;
+  font-size: 1rem;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+.calendar thead {
+	color: #c26b23;
+	font-weight: 700;
+  text-transform: uppercase;
+}
+
+.calendar td {
+	padding: 1em 2em;
+  text-align: center;
+}
+
+.calendar-days td {
+  padding: .5em 1.1em;
+  text-align: center;
+}
+
+.calendar tbody td:hover {
+  background: #c26b23;
+  border-radius: 1em;
+	color: #fff;
+}
+
+.day {
+	font-size: 8em;
+	font-weight: 900;
+	line-height: 1em;
+}
+
+.month {
+	font-size: 4em;
+	line-height: 1em;
+	text-transform: lowercase;
+}
+
+.current-day {
+  font-weight: 900;
+}
+
+.prev-month,
+.next-month {
+	color: #cacaca;
+}
+
+//Plant Database
+.search-wrapper {
+  height: 5rem;
+  font-size: 0;
+  width: 70%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-items: center;
+
+  input {
+      box-sizing: border-box;
+      font-size: 1rem;
+      vertical-align: top;
+      color: #c26b23;
+  }
+
+  input:focus {
+    outline: none;
+    color: #c26b23;
+  }
+
+  input::placeholder {
+    color: #c26b23;
+  }
+}
+
+.search {
+  padding: 0 30px;
+  font-size: 2rem;
+  width: 80%;
+  min-width: 200px;
+  height: 4rem;
+  border: 1px solid #c26b23;
+  border-radius: 20px 0 0 20px;
+}
+
+.submit {
+  cursor: pointer;
+  border: none;
+  background-size: 35px 35px;
+  border-radius: 0 20px 20px 0;
+  padding: 15px 25px;
+  width: 20%;
+  min-width: 75px;
+  height: 4rem;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #c26b23;
+}
+
+//Media Queries
+@media only screen and (max-width: 484px)  {
+  .calendar-header {
+    padding: 2em 6.6em !important;
+  }
+  .calendar td {
+    padding: 0.25em 0.5em !important;
+  } 
+}
+
+@media only screen and (max-width: 600px)  {
+  .guide-buttons {
+    grid-template-columns: repeat(2, minmax(10rem, 1fr));
+    grid-template-rows: repeat(4, 10rem);
+  }
+  .main-nav {
+    ul{
+      li {
+        a {
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+  }
+  .calendar-header {
+    padding: 2em 10.1em;
+  }
+  .calendar td {
+    padding: 0.5em 1em;
+  } 
+}
