@@ -4,7 +4,7 @@
   "devDependencies": {
     "autoprefixer": "^6.1.0",
     "browser-sync": "^2.9.11",
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.2",
     "gulp-cheerio": "^0.6.2",
     "gulp-concat": "^2.6.0",
     "gulp-file-include": "^0.13.7",
